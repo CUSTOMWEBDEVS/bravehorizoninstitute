@@ -1,0 +1,1 @@
+window.BHI_CONFIG=Object.freeze({API_URL:"https://script.google.com/macros/s/AKfycbxHVbmdDZWDwIeMXapjUeoi8wfo9ulE3ujXwycdG0YZvx5yBBf30-7tY_Lcaj50YUFY/exec",BOOKING_URL:"mailto:connect@bravehorizon.com",SESSION_STORAGE_KEY:"bhi_admin_session"});
