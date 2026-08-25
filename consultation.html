@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Request a Consultation | Brave Horizon Institute</title>
+  <meta name="description" content="Request a consultation with Brave Horizon Institute.">
+  <meta name="theme-color" content="#123b56">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="container nav-shell">
+    <a class="brand" href="index.html" aria-label="Brave Horizon Institute home">
+      <img src="assets/images/brave-horizon-logo-primary.png" alt="" class="brand-logo">
+      <span class="brand-wordmark"><strong>Brave Horizon</strong><small>Institute</small></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <a href="therapy.html">Therapy</a>
+      <a href="professionals.html">For Professionals</a>
+      <a href="resources.html">Education & Resources</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="portal-link" href="consultation.html">Request a Consultation</a>
+      <a class="button button-small" href="book.html">Book Therapy</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="page-hero consultation-hero">
+    <div class="container narrow">
+      <p class="eyebrow">Consultation Request</p>
+      <h1>Request a conversation with Brandi.</h1>
+      <p class="lead">Submit your contact information, insurance provider, and general availability. This is a request only and does not automatically schedule an appointment.</p>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container consultation-layout">
+      <div class="consultation-copy">
+        <p class="eyebrow">What happens next</p>
+        <h2>Brandi reviews each request before scheduling.</h2>
+        <p>Brave Horizon Institute will review your request and contact you regarding availability and appropriate next steps.</p>
+        <p>Please do not include symptoms, diagnoses, trauma history, medications, treatment details, insurance member numbers, policy numbers, or other clinical information.</p>
+        <div class="security-banner consultation-notice"><strong>This form is not for emergencies.</strong> If you need immediate assistance, call 911 or use the appropriate local crisis service.</div>
+      </div>
+
+      <div class="consultation-form-card">
+        <form id="consultation-form" autocomplete="on" novalidate>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot-field">
+          <input id="form-started-at" type="hidden">
+
+          <div class="field-grid">
+            <label>First name<input id="first-name" name="firstName" type="text" autocomplete="given-name" maxlength="60" required></label>
+            <label>Last name<input id="last-name" name="lastName" type="text" autocomplete="family-name" maxlength="60" required></label>
+          </div>
+
+          <div class="field-grid">
+            <label>Email<input id="email" name="email" type="email" autocomplete="email" maxlength="160" required></label>
+            <label>Phone number<input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" required></label>
+          </div>
+
+          <label>Preferred contact method
+            <select id="contact-method" name="contactMethod" required>
+              <option value="">Select one</option>
+              <option value="Phone">Phone</option>
+              <option value="Email">Email</option>
+              <option value="Text">Text</option>
+            </select>
+          </label>
+
+          <label>Insurance provider<input id="insurance-provider" name="insuranceProvider" type="text" maxlength="100" placeholder="Example: Blue Cross Blue Shield, Aetna, Self-pay" required></label>
+
+          <fieldset class="availability-fieldset">
+            <legend>General days available</legend>
+            <p class="field-help">Select all that generally work.</p>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="days" value="Monday"> Monday</label>
+              <label><input type="checkbox" name="days" value="Tuesday"> Tuesday</label>
+              <label><input type="checkbox" name="days" value="Wednesday"> Wednesday</label>
+              <label><input type="checkbox" name="days" value="Thursday"> Thursday</label>
+              <label><input type="checkbox" name="days" value="Friday"> Friday</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="availability-fieldset">
+            <legend>General time availability</legend>
+            <p class="field-help">Select all that generally work.</p>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="times" value="Morning"> Morning</label>
+              <label><input type="checkbox" name="times" value="Afternoon"> Afternoon</label>
+              <label><input type="checkbox" name="times" value="Evening"> Evening</label>
+            </div>
+          </fieldset>
+
+          <label class="consent-check">
+            <input id="request-consent" type="checkbox" required>
+            <span>I understand this is only a consultation request and does not create an appointment or establish a therapist-client relationship.</span>
+          </label>
+
+          <button id="consultation-submit" class="button" type="submit">Submit Consultation Request</button>
+          <p id="consultation-message" class="form-message" role="status" aria-live="polite"></p>
+          <p class="microcopy">Do not submit confidential clinical information through this form.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft-section">
+    <div class="container narrow centered">
+      <p class="eyebrow">Already ready to schedule therapy?</p>
+      <h2>Alma and Headway remain available for therapy scheduling.</h2>
+      <p>If you are already using one of Brandi's secure clinical platforms, continue through the therapy booking page.</p>
+      <a class="button button-secondary" href="book.html">View Therapy Options</a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/images/brave-horizon-logo-primary.png" alt="" class="footer-logo">
+      <div><strong>Brave Horizon Institute</strong><p>Where courage meets healing and hope shapes the horizon.</p></div>
+    </div>
+    <div><h3>Explore</h3><a href="therapy.html">Therapy</a><a href="professionals.html">For Professionals</a><a href="resources.html">Resources</a><a href="about.html">About</a></div>
+    <div><h3>Contact</h3><a href="mailto:connect@bravehorizoninstitute.com">connect@bravehorizoninstitute.com</a><a href="consultation.html">Request a Consultation</a><a href="book.html">Book therapy</a></div>
+    <div><h3>Legal</h3><a href="privacy.html">Privacy</a><a href="admin.html">Administrator</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© <span data-year></span> Brave Horizon Institute.</span><span>This website is informational and is not monitored for emergencies.</span></div>
+</footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/consultation.js"></script>
+</body>
+</html>

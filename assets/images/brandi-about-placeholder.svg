@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760">
+<rect width="1000" height="760" fill="#f7f3ea"/>
+<path d="M0 590C190 440 340 690 535 520s328-70 465-192v432H0Z" fill="#78b8aa" opacity=".35"/>
+<circle cx="500" cy="270" r="150" fill="#fff"/>
+<path d="M270 685c24-205 110-314 230-314s206 109 230 314" fill="#fff"/>
+<text x="500" y="705" font-family="Arial, sans-serif" font-size="28" fill="#123b56" text-anchor="middle">Approved office / professional photo</text>
+</svg>

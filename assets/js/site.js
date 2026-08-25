@@ -1,1 +1,35 @@
-(()=>{"use strict";const c=window.BHI_CONFIG;document.getElementById("year").textContent=new Date().getFullYear();document.querySelector(".nav-toggle")?.addEventListener("click",e=>{const n=document.getElementById("primary-nav"),o=n.classList.toggle("open");e.currentTarget.setAttribute("aria-expanded",String(o))});document.querySelectorAll("[data-booking-link]").forEach(a=>a.href=c.BOOKING_URL);const esc=v=>String(v??"").replace(/[&<>"']/g,x=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[x]));const safe=v=>{try{const u=new URL(v);return["https:","mailto:"].includes(u.protocol)?u.href:"#"}catch{return"#"}};function render(items){const g=document.getElementById("resource-grid");if(!items.length){g.innerHTML='<div class="empty-state">No published resources are available yet.</div>';return}g.innerHTML=items.map(i=>`<article class="resource-card" data-type="${esc(i.type)}">${i.imageUrl?`<img src="${safe(i.imageUrl)}" alt="" loading="lazy">`:""}<div class="resource-meta"><span>${esc(i.type)}</span><span>${esc(i.category||"Resource")}</span></div><h3>${esc(i.title)}</h3><p>${esc(i.summary)}</p><a href="${safe(i.url||"#")}" target="_blank" rel="noopener noreferrer">${i.type==="video"?"Watch video":i.type==="link"?"Open resource":"Read article"} →</a></article>`).join("")}async function load(){if(!c.API_URL.startsWith("https://script.google.com/"))return;try{const r=await fetch(`${c.API_URL}?action=publicContent`,{redirect:"follow",cache:"no-store"}),d=await r.json();if(!d.ok)throw new Error();render(d.items||[]);if(d.settings){if(d.settings.heroTitle)document.getElementById("hero-title").textContent=d.settings.heroTitle;if(d.settings.heroText)document.getElementById("hero-text").textContent=d.settings.heroText;if(d.settings.aboutText)document.getElementById("about-text").textContent=d.settings.aboutText}}catch{document.getElementById("resource-grid").innerHTML='<div class="empty-state">Resources are temporarily unavailable.</div>'}}document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".resource-card").forEach(x=>x.hidden=b.dataset.filter!=="all"&&x.dataset.type!==b.dataset.filter)}));load()})();
+(() => {
+"use strict";
+const cfg = window.BHI_CONFIG || {};
+document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date().getFullYear());
+const toggle=document.querySelector(".nav-toggle"),nav=document.getElementById("site-nav");
+toggle?.addEventListener("click",()=>{const open=nav.classList.toggle("open");toggle.setAttribute("aria-expanded",String(open));});
+document.querySelectorAll("[data-booking-link]").forEach(a=>a.href=cfg.BOOKING_URL||"#");
+document.querySelectorAll("[data-consultation-link]").forEach(a=>a.href=cfg.CONSULTATION_URL||"#");
+
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+const safeUrl=v=>{try{const u=new URL(v);return ["https:","mailto:"].includes(u.protocol)?u.href:"#"}catch{return"#"}};
+function cards(items,limit){
+  const data=(items||[]).slice(0,limit||items.length);
+  return data.map(i=>`<article class="resource-card" data-type="${esc(i.type)}">
+    ${i.imageUrl?`<img src="${safeUrl(i.imageUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:""}
+    <div class="resource-meta"><span>${esc(i.type)}</span><span>${esc(i.category||"Resource")}</span></div>
+    <h3>${esc(i.title)}</h3><p>${esc(i.summary)}</p>
+    <a class="arrow-link" href="${safeUrl(i.url||"#")}" ${safeUrl(i.url||"#").startsWith("http")?'target="_blank" rel="noopener noreferrer"':""}>${i.type==="video"?"Watch video":i.type==="link"?"Open resource":"Read article"} →</a>
+  </article>`).join("");
+}
+async function load(){
+  if(!String(cfg.API_URL||"").startsWith("https://script.google.com/")) return;
+  try{
+    const r=await fetch(`${cfg.API_URL}?action=publicContent`,{redirect:"follow",cache:"no-store"});
+    const d=await r.json(); if(!d.ok) throw new Error(d.error||"Load failed");
+    const rg=document.getElementById("resource-grid"); if(rg) rg.innerHTML=cards(d.items||[])||'<div class="empty-state">No published resources yet.</div>';
+    const hg=document.getElementById("home-resource-grid"); if(hg) hg.innerHTML=cards(d.items||[],3)||'<div class="empty-state">New resources will appear here.</div>';
+  }catch(e){console.error(e)}
+}
+document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");
+  const t=btn.dataset.filter;document.querySelectorAll(".resource-card").forEach(c=>c.hidden=t!=="all"&&c.dataset.type!==t);
+}));
+load();
+})();
