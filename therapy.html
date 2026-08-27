@@ -11,6 +11,35 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" type="image/png" href="assets/images/brave-horizon-logo-soft.png">
+
+  <style>
+    /* Requested therapy-page refinements */
+    .telehealth-section { padding-bottom: 1.5rem !important; }
+    .telehealth-section + .section { padding-top: 1.5rem !important; }
+    .telehealth-notice {
+      background: #eaf4f4 !important;
+      border-color: #9fc9c8 !important;
+      color: #123b56 !important;
+    }
+    .pill-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .75rem !important;
+      align-items: stretch;
+    }
+    .pill-grid span {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      min-height: 44px;
+      box-sizing: border-box;
+    }
+    @media (max-width: 900px) { .pill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 650px) { .pill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 420px) { .pill-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -42,9 +71,9 @@
   </div>
 </section>
 
-<section class="section light-section">
+<section class="section light-section telehealth-section">
   <div class="container narrow">
-    <div class="security-banner">
+    <div class="security-banner telehealth-notice">
       <strong>Telehealth therapy only.</strong>
       Brave Horizon Institute currently provides individual therapy exclusively through secure telehealth appointments. In-person therapy is not available at this time.
     </div>
@@ -57,7 +86,7 @@
     <p>Brave Horizon’s primary clinical focus includes adults navigating the effects of domestic violence, narcissistic abuse, emotional or psychological abuse, coercive control, trauma bonding, high-conflict relationships, family-of-origin trauma, and related PTSD or trauma symptoms.</p>
   </div>
   <div class="container pill-grid">
-    <span>Domestic violence recovery</span><span>Narcissistic abuse</span><span>Emotional abuse</span><span>Coercive control</span><span>Trauma bonding</span><span>High-conflict divorce</span><span>Family systems</span><span>Workplace relational trauma</span><span>Hypervigilance</span><span>Boundary difficulties</span><span>Self-trust</span><span>Identity after trauma</span>
+    <span>Domestic violence recovery</span><span>Narcissistic abuse</span><span>Impact of narcissistic abuse &amp; unhealthy relationships</span><span>Emotional abuse</span><span>Coercive control</span><span>Trauma bonding</span><span>High-conflict divorce</span><span>Family systems</span><span>Workplace relational trauma</span><span>Hypervigilance</span><span>Boundary difficulties</span><span>Self-trust</span><span>Identity after trauma</span>
   </div>
 </section>
 
